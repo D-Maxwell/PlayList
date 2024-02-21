@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>TB wip</title>
+  </head>
+  <body>
+
+    <div class="main">
+      <label class="toggleVidRotLabel">Spin</label>
+      <div class="toggleVidRot" id='togglevidrot'>
+        <input class="toggleVidRotCheckBox" onchange="document.documentElement.style.setProperty('--toggle-vid-rot', this.checked ? 'running' : 'paused'); document.documentElement.style.setProperty('--toggle-vid-rot-button', this.checked ? 'flex-end' : 'flex-start');" type="checkbox" name="toggleVidRot" checked>
+      </div>
+      <div class="vid softShadow"></div>
+      <div class="controls softShadow">
+        <div class="prev"></div>
+        <div class="playPause" onclick="playPause()"></div>
+        <div class="next"></div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+      const root = document.querySelector(':root');
+
+      function playPause() {
+        var isPlaying = getComputedStyle(root).getPropertyValue('--isPlaying');
+        var playState = getComputedStyle(root).getPropertyValue('--playState');
+
+        document.documentElement.style.setProperty('--isPlaying', 'running');
+        if (playState == "pause") {
+          document.documentElement.style.setProperty('--playPause-frame', '0% 0%');
+          document.documentElement.style.setProperty('--playState', 'play');
+        }
+        else if (playState == "play") {
+          document.documentElement.style.setProperty('--playPause-frame', '0% 50%');
+          document.documentElement.style.setProperty('--playState', 'pause');
+        }
+        console.log(isPlaying, playState)
+      }
+
+
+      function toggleVidRot(){
+        //var toggle = document.getElementsByClassName("toggleVidRotCheckBox").innerHTML;
+        //document.documentElement.style.setProperty('--toggle-vid-rot', toggle.checked ? 'running' : 'paused');
+        //document.documentElement.style.setProperty('--toggle-vid-rot-button', toggle.checked ? 'flex-end' : 'flex-start');
+        //console.log(toggle.checked);
+
+        //document.getElementsByClassName("toggleVidRot").style.justify_content =  ? "flex-start" : "flex-end";
+        //if(document.getElementsByClassName("toggleVidRotCheckBox").checked){
+          //document.getElementById("togglevidrot").style.left = 'none';
+          //document.getElementById("togglevidrot").style.right = '0px';
+          //console.log("checked")
+        //}
+        //else{
+          //document.getElementById("togglevidrot").style.left = '0px';
+          //document.getElementById("togglevidrot").style.right = 'none';
+          //console.log("unchecked")
+        //}
+        //document.getElementsByClassName('toggleVidRot').style[this.checked ? 'left' : 'right'] = '0px';
+        //document.getElementsByClassName('toggleVidRot').style.removeProperty(this.checked ? 'right' : 'left');
+      }
+
+      //function toggleVidRot(){
+        //var toggleVidRotCheckBox = document.querySelector('toggleVidRotCheckBox');
+
+        //document.documentElement.style.setProperty('--toggle-vid-rot', document.getElementsByClassName('toggleVidRotCheckBox').checked ? 'paused' : 'running');
+        //console.log(document.getElementsByClassName('toggleVidRotCheckBox').checked ? 'paused' : 'running');
+
+        //document.getElementsByClassName("toggleVidRot").style.setProperty(document.getElementsByClassName('toggleVidRotCheckBox').checked ? 'left' : 'right', '0px');
+        //console.log(document.getElementsByClassName('toggleVidRotCheckBox').checked);
+      //}
+
+    </script>
+
+  </body>
+</html>
