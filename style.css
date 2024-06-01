@@ -113,7 +113,7 @@ body{
   height: 48px;
   position: absolute;
   filter: invert(50%);
-  /*transition: 0.25s;*/
+  transition: 0.25s;
 }
 .controls div:hover::after{
   /*filter: invert(45%);*/
